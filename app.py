@@ -158,9 +158,16 @@ def process_csv(file, file_name):
 def display_report(report):
     """Display the full analysis report"""
 
-    # Header
-    st.markdown(f"### 📊 Pipeline Analysis Report")
-    st.markdown(f"*Generated: {datetime.fromisoformat(report['date']).strftime('%B %d, %Y at %I:%M %p')}*")
+    # Header with reset button
+    col1, col2 = st.columns([4, 1])
+    with col1:
+        st.markdown(f"### 📊 Pipeline Analysis Report")
+        st.markdown(f"*Generated: {datetime.fromisoformat(report['date']).strftime('%B %d, %Y at %I:%M %p')}*")
+
+    with col2:
+        if st.button("🏠 New Analysis", use_container_width=True):
+            st.session_state.current_report = None
+            st.rerun()
 
     # Metrics
     col1, col2, col3, col4 = st.columns(4)
@@ -540,6 +547,12 @@ with st.sidebar:
                 st.session_state.reports_history.insert(0, st.session_state.current_report)
                 st.success("✅ Sample data loaded!")
                 st.rerun()
+
+    if st.button("🏠 Clear Current Report", use_container_width=True):
+        st.session_state.current_report = None
+        if 'processed_file' in st.session_state:
+            del st.session_state.processed_file
+        st.rerun()
 
     st.divider()
 
