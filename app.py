@@ -520,22 +520,26 @@ with st.sidebar:
     st.markdown("### Upload New Pipeline")
     uploaded_file = st.file_uploader("Upload CSV", type=['csv'])
 
-    if uploaded_file and 'processed_file' not in st.session_state:
-        try:
-            report = process_csv(uploaded_file, uploaded_file.name)
-            if report:
-                st.session_state.current_report = report
-                st.session_state.reports_history.insert(0, report)
-                st.session_state.processed_file = uploaded_file.name
-                st.success("✅ Analysis complete!")
-            else:
-                st.error("❌ Failed to generate report. Check CSV format.")
-        except Exception as e:
-            st.error(f"❌ Upload error: {str(e)}")
+    if uploaded_file:
+        # Check if this is a new file (different from last processed)
+        is_new_file = st.session_state.get('processed_file') != uploaded_file.name or st.session_state.get('processed_file_size') != len(uploaded_file.getvalue())
 
-    # Reset processed file flag on new upload
-    if not uploaded_file and 'processed_file' in st.session_state:
-        del st.session_state.processed_file
+        if is_new_file and 'processing' not in st.session_state:
+            try:
+                st.session_state.processing = True
+                report = process_csv(uploaded_file, uploaded_file.name)
+                if report:
+                    st.session_state.current_report = report
+                    st.session_state.reports_history.insert(0, report)
+                    st.session_state.processed_file = uploaded_file.name
+                    st.session_state.processed_file_size = len(uploaded_file.getvalue())
+                    st.success("✅ Analysis complete!")
+                else:
+                    st.error("❌ Failed to generate report. Check CSV format.")
+            except Exception as e:
+                st.error(f"❌ Upload error: {str(e)}")
+            finally:
+                st.session_state.processing = False
 
     if st.button("📤 Try Sample Data"):
         with st.spinner("Processing sample data..."):
