@@ -223,9 +223,44 @@ def display_report(report):
 
     st.divider()
 
-    # Remaining Deals
-    st.markdown("### 📋 All Remaining Deals")
+    # Remaining Deals with Filtering
+    st.markdown("### 📋 All Deals")
 
+    # Filter controls
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        search_term = st.text_input("🔍 Search by company or deal name", "")
+
+    with col2:
+        risk_filter = st.multiselect(
+            "Filter by risk level",
+            ['Healthy', 'Watch', 'At Risk'],
+            default=['Healthy', 'Watch', 'At Risk']
+        )
+
+    with col3:
+        amount_range = st.slider(
+            "Filter by deal amount ($)",
+            min_value=0,
+            max_value=int(max([d['amount'] for d in report['all_deals']], default=0)) + 1,
+            value=(0, int(max([d['amount'] for d in report['all_deals']], default=0)) + 1)
+        )
+
+    # Apply filters
+    filtered_deals = report['all_deals']
+
+    if search_term:
+        filtered_deals = [d for d in filtered_deals if
+            search_term.lower() in d['opportunity_name'].lower() or
+            search_term.lower() in d['company_name'].lower()]
+
+    if risk_filter:
+        filtered_deals = [d for d in filtered_deals if d['risk_level'] in risk_filter]
+
+    filtered_deals = [d for d in filtered_deals if amount_range[0] <= d['amount'] <= amount_range[1]]
+
+    # Create filtered dataframe
     deals_df = pd.DataFrame([{
         'Deal': d['opportunity_name'],
         'Company': d['company_name'],
@@ -233,8 +268,9 @@ def display_report(report):
         'Stage': d['stage'],
         'Score': d['risk_score'],
         'Risk': d['risk_level']
-    } for d in report['all_deals'][5:]])
+    } for d in filtered_deals])
 
+    st.info(f"📊 Showing {len(filtered_deals)} of {len(report['all_deals'])} deals")
     st.dataframe(deals_df, use_container_width=True, hide_index=True)
 
     st.divider()
