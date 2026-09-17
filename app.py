@@ -548,12 +548,6 @@ with st.sidebar:
                 st.success("✅ Sample data loaded!")
                 st.rerun()
 
-    if st.button("🏠 Clear Current Report", use_container_width=True):
-        st.session_state.current_report = None
-        if 'processed_file' in st.session_state:
-            del st.session_state.processed_file
-        st.rerun()
-
     st.divider()
 
     # API Status
