@@ -20,6 +20,14 @@ from csv_parser import parse_csv
 from pipeline_intelligence import calculate_risk_score
 from demo_ai_analyzer import demo_analyze_deal
 
+# Try to import real Claude analyzer
+try:
+    from ai_analyzer import analyze_deal_with_claude
+    CLAUDE_API_AVAILABLE = True
+except:
+    CLAUDE_API_AVAILABLE = False
+    analyze_deal_with_claude = None
+
 # Page config
 st.set_page_config(
     page_title="Pipeline Intelligence",
@@ -95,7 +103,16 @@ def process_csv(file, file_name):
 
             for i, deal in enumerate(normalized_data):
                 scored = calculate_risk_score(deal)
-                ai_analysis = demo_analyze_deal(scored)
+
+                # Try real Claude API first, fall back to demo
+                try:
+                    if CLAUDE_API_AVAILABLE and 'CLAUDE_API_KEY' in st.secrets:
+                        ai_analysis = analyze_deal_with_claude(scored)
+                    else:
+                        ai_analysis = demo_analyze_deal(scored)
+                except:
+                    ai_analysis = demo_analyze_deal(scored)
+
                 scored['ai_analysis'] = ai_analysis
                 analyzed_deals.append(scored)
                 progress_bar.progress((i + 1) / len(normalized_data))
@@ -523,6 +540,15 @@ with st.sidebar:
                 st.session_state.reports_history.insert(0, st.session_state.current_report)
                 st.success("✅ Sample data loaded!")
                 st.rerun()
+
+    st.divider()
+
+    # API Status
+    st.markdown("### 🤖 AI Analysis Mode")
+    if 'CLAUDE_API_KEY' in st.secrets and CLAUDE_API_AVAILABLE:
+        st.success("✅ Real Claude API enabled")
+    else:
+        st.info("📝 Using demo mode\n\nTo enable real Claude AI:\n1. Add `CLAUDE_API_KEY` to `.streamlit/secrets.toml`\n2. Restart the app")
 
     st.divider()
 
