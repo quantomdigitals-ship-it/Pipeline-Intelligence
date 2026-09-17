@@ -49,6 +49,20 @@ st.markdown("""
         background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
     }
 
+    /* Sidebar text - make visible */
+    [data-testid="stSidebar"] * {
+        color: white !important;
+    }
+
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] div {
+        color: white !important;
+    }
+
     /* Landing page hero */
     .hero-section {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -646,15 +660,6 @@ with st.sidebar:
                 st.session_state.reports_history.insert(0, st.session_state.current_report)
                 st.success("✅ Sample data loaded!")
                 st.rerun()
-
-    st.divider()
-
-    # API Status
-    st.markdown("### 🤖 AI Analysis Mode")
-    if 'CLAUDE_API_KEY' in st.secrets and CLAUDE_API_AVAILABLE:
-        st.success("✅ Real Claude API enabled")
-    else:
-        st.info("📝 Using demo mode\n\nTo enable real Claude AI:\n1. Add `CLAUDE_API_KEY` to `.streamlit/secrets.toml`\n2. Restart the app")
 
     st.divider()
 
