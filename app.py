@@ -8,6 +8,8 @@ import pandas as pd
 import json
 import os
 from datetime import datetime
+import plotly.express as px
+import plotly.graph_objects as go
 from csv_parser import parse_csv
 from pipeline_intelligence import calculate_risk_score
 from demo_ai_analyzer import demo_analyze_deal
@@ -170,6 +172,21 @@ def display_report(report):
 
     st.divider()
 
+    # Charts
+    st.markdown("### 📊 Pipeline Analytics")
+
+    fig_risk, fig_revenue, fig_stage = create_charts(report)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.plotly_chart(fig_risk, use_container_width=True)
+    with col2:
+        st.plotly_chart(fig_revenue, use_container_width=True)
+
+    st.plotly_chart(fig_stage, use_container_width=True)
+
+    st.divider()
+
     # Top 5 Deals
     st.markdown("### 🎯 Top 5 Highest Risk Deals")
 
@@ -267,6 +284,76 @@ def display_report(report):
 
     with col2:
         st.markdown("📄 PDF export available in production version")
+
+def create_charts(report):
+    """Create interactive charts for report"""
+
+    # Chart 1: Risk Distribution (Pie Chart)
+    risk_counts = {
+        'Healthy': report['metrics']['healthy_count'],
+        'Watch': report['metrics']['watch_count'],
+        'At Risk': report['metrics']['at_risk_count']
+    }
+    risk_colors = {'Healthy': '#10b981', 'Watch': '#f59e0b', 'At Risk': '#ef4444'}
+
+    fig_risk = go.Figure(data=[go.Pie(
+        labels=list(risk_counts.keys()),
+        values=list(risk_counts.values()),
+        marker=dict(colors=[risk_colors[k] for k in risk_counts.keys()]),
+        hole=0.3
+    )])
+    fig_risk.update_layout(
+        title="Deal Risk Distribution",
+        height=350,
+        showlegend=True,
+        font=dict(size=12)
+    )
+
+    # Chart 2: Revenue by Risk Level
+    revenue_by_risk = {
+        'At Risk': report['metrics']['at_risk_revenue'],
+        'Healthy': sum(d['amount'] for d in report['all_deals'] if d['risk_score'] < 30),
+        'Watch': sum(d['amount'] for d in report['all_deals'] if 30 <= d['risk_score'] < 60)
+    }
+
+    fig_revenue = go.Figure(data=[go.Bar(
+        x=list(revenue_by_risk.keys()),
+        y=list(revenue_by_risk.values()),
+        marker=dict(color=['#ef4444', '#10b981', '#f59e0b']),
+        text=[f"${v/1000:.0f}K" for v in revenue_by_risk.values()],
+        textposition='outside'
+    )])
+    fig_revenue.update_layout(
+        title="Revenue by Risk Level",
+        yaxis_title="Revenue ($)",
+        height=350,
+        showlegend=False,
+        xaxis=dict(showgrid=False),
+        yaxis=dict(showgrid=True)
+    )
+
+    # Chart 3: Deal Count by Stage
+    stage_counts = {}
+    for deal in report['all_deals']:
+        stage = deal.get('stage', 'Unknown')
+        stage_counts[stage] = stage_counts.get(stage, 0) + 1
+
+    fig_stage = go.Figure(data=[go.Bar(
+        x=list(stage_counts.keys()),
+        y=list(stage_counts.values()),
+        marker=dict(color='#3b82f6'),
+        text=list(stage_counts.values()),
+        textposition='outside'
+    )])
+    fig_stage.update_layout(
+        title="Deal Count by Stage",
+        yaxis_title="Number of Deals",
+        height=350,
+        showlegend=False,
+        xaxis=dict(tickangle=-45)
+    )
+
+    return fig_risk, fig_revenue, fig_stage
 
 # Sidebar
 with st.sidebar:
