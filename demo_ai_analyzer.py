@@ -13,17 +13,17 @@ def demo_analyze_deal(deal: dict) -> dict:
 
     # Generate contextual response based on risk profile
     if risk_score >= 80:
-        explanation = "Deal has been stalled in proposal stage for 3+ weeks with zero buyer engagement, indicating approval blockers or lost interest."
-        action = "Schedule urgent stakeholder alignment call to identify decision obstacles."
+        explanation = "Deal has stalled with no buyer contact for 20+ days. No decision timeline defined. Approval process unclear."
+        action = "Contact buyer to confirm project priority and decision timeline. Escalate if no response within 48 hours."
     elif risk_score >= 60:
-        explanation = "Deal is aging in current stage faster than baseline, with limited next-step definition blocking momentum."
-        action = "Request formal timeline from buyer with specific decision dates and next touchpoint."
+        explanation = "Deal aging in current stage with limited activity. Buyer engagement has declined in past 2 weeks."
+        action = "Schedule call to establish next steps and decision date. Clarify remaining questions or concerns."
     elif risk_score >= 40:
-        explanation = "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization."
-        action = "Confirm buyer still engaged; propose trial or pilot to re-energize discussion."
+        explanation = "Deal showing slower-than-expected progress. Activity declining but still moving forward."
+        action = "Increase touch frequency. Identify any obstacles or competitive threats blocking forward momentum."
     else:
-        explanation = "Deal is progressing normally with active engagement and defined next steps."
-        action = "Continue standard follow-up cadence and prepare for next stage gate."
+        explanation = "Deal progressing on schedule with regular buyer engagement and defined next steps."
+        action = "Continue current cadence. Monitor for any changes in buyer engagement or timeline."
 
     return {
         "explanation": explanation,
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     ]
 
     print("="*80)
-    print("PIPELINE INTELLIGENCE — AI ANALYSIS DEMO")
+    print("PIPELINE INTELLIGENCE - ANALYSIS DEMO")
     print("="*80)
 
     for deal in test_deals:
@@ -87,7 +87,5 @@ if __name__ == "__main__":
         print(format_deal_report(deal))
         print("\n" + "-"*80 + "\n")
 
-    print("✅ This is what the real AI analyzer will produce.")
-    print("\nTo enable real Claude API analysis:")
-    print("1. Set ANTHROPIC_API_KEY environment variable")
-    print("2. Run: python pipeline_with_ai.py")
+    print("Demo mode: Analysis based on deal metrics and activity patterns.")
+    print("\nFor real Claude AI analysis, add ANTHROPIC_API_KEY to Streamlit secrets.")

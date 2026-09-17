@@ -290,11 +290,11 @@ def display_report(report):
     # Header with reset button
     col1, col2 = st.columns([4, 1])
     with col1:
-        st.markdown(f"### 📊 Pipeline Analysis Report")
+        st.markdown(f"### Pipeline Analysis Report")
         st.markdown(f"*Generated: {datetime.fromisoformat(report['date']).strftime('%B %d, %Y at %I:%M %p')}*")
 
     with col2:
-        if st.button("🏠 New Analysis", use_container_width=True):
+        if st.button("New Analysis", use_container_width=True):
             st.session_state.current_report = None
             st.rerun()
 
@@ -332,7 +332,7 @@ def display_report(report):
     st.divider()
 
     # Charts
-    st.markdown("### 📊 Pipeline Analytics")
+    st.markdown("### Pipeline Analytics")
 
     fig_risk, fig_revenue, fig_stage = create_charts(report)
 
@@ -347,7 +347,7 @@ def display_report(report):
     st.divider()
 
     # Top 5 Deals
-    st.markdown("### 🎯 Top 5 Highest Risk Deals")
+    st.markdown("### Highest Risk Deals")
 
     for i, deal in enumerate(report['top_5_deals'], 1):
         risk_class = deal['risk_level'].lower().replace(' ', '-')
@@ -358,32 +358,32 @@ def display_report(report):
             with col1:
                 st.markdown(f"**{i}. {deal['opportunity_name']}**")
                 st.markdown(f"*{deal['company_name']}*")
-                st.markdown(f"💰 ${deal['amount']:,} | 📊 {deal['risk_score']}/100 | 📍 {deal['stage']}")
+                st.markdown(f"${deal['amount']:,} | Risk Score: {deal['risk_score']}/100 | Stage: {deal['stage']}")
 
             with col2:
                 if deal['risk_score'] >= 60:
-                    st.markdown("🔴 **AT RISK**")
+                    st.markdown("**AT RISK**")
                 elif deal['risk_score'] >= 30:
-                    st.markdown("🟡 **WATCH**")
+                    st.markdown("**WATCH**")
                 else:
-                    st.markdown("🟢 **HEALTHY**")
+                    st.markdown("**HEALTHY**")
 
-            st.markdown("**📌 Why At Risk:**")
+            st.markdown("**Analysis:**")
             st.markdown(deal['ai_analysis']['explanation'])
 
-            st.markdown("**✅ Recommended Action:**")
+            st.markdown("**Action:**")
             st.markdown(deal['ai_analysis']['recommended_action'])
 
     st.divider()
 
     # Remaining Deals with Filtering
-    st.markdown("### 📋 All Deals")
+    st.markdown("### All Deals")
 
     # Filter controls
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        search_term = st.text_input("🔍 Search by company or deal name", "")
+        search_term = st.text_input("Search by company or deal name", "")
 
     with col2:
         risk_filter = st.multiselect(
@@ -449,29 +449,29 @@ def display_report(report):
         st.markdown("1. Unstall proposals\n2. Accelerate discovery\n3. Protect healthy deals")
 
     st.info("""
-    **📌 Strategic Insight**
+    **Pipeline Summary**
 
-    Your pipeline is experiencing a bottleneck at the proposal stage. Several deals have stalled with no buyer engagement for 20+ days, indicating approval blockers or deprioritization.
+    Analysis shows potential bottleneck in proposal stage with limited buyer engagement on several deals. At-risk deals require immediate follow-up.
 
-    **✅ Recommended Actions (This Week):**
-    - Call decision-makers on all at-risk deals to confirm status
-    - For stalled proposals: Ask "What do you need to move forward?"
-    - For discovery deals: Schedule milestone reviews to maintain momentum
-    - For healthy deals: Confirm next steps to prevent slippage
+    **Recommended Actions:**
+    - Contact decision-makers on all at-risk deals
+    - Clarify timeline and next steps for proposals
+    - Schedule reviews for active opportunities
+    - Monitor healthy deals for status changes
 
-    **Expected Outcome:** If you recover 50% of at-risk revenue, you unlock $217K in pipeline velocity over 30 days.
+    **Potential Impact:** Recovering 50% of at-risk revenue could improve pipeline velocity by $217K over 30 days.
     """)
 
     # Export options
     st.divider()
-    st.markdown("### 📥 Export Options")
+    st.markdown("### Export Report")
 
     col1, col2 = st.columns(2)
 
     with col1:
         csv_data = deals_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download CSV",
+            label="Download CSV",
             data=csv_data,
             file_name=f"pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -480,7 +480,7 @@ def display_report(report):
     with col2:
         pdf_data = generate_pdf_report(report)
         st.download_button(
-            label="📄 Download PDF",
+            label="Download PDF",
             data=pdf_data,
             file_name=f"pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
             mime="application/pdf"
