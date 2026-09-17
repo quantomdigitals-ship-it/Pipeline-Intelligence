@@ -63,6 +63,26 @@ st.markdown("""
         color: white !important;
     }
 
+    /* File uploader styling - black text for visibility */
+    [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {
+        background: white !important;
+        border: 2px dashed #667eea !important;
+    }
+
+    [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] * {
+        color: black !important;
+    }
+
+    [data-testid="stSidebar"] .uploadedFileName {
+        color: #1e293b !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stSidebar"] svg {
+        stroke: black !important;
+        fill: black !important;
+    }
+
     /* Landing page hero */
     .hero-section {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
