@@ -1,0 +1,31 @@
+opportunity_name,company_name,amount,stage,risk_score,risk_level,priority_score
+CRM Implementation,CRMPro,95000,Discovery,75,At Risk,712.5
+Compliance Automation,ComplianceCo,67000,Proposal,90,At Risk,603.0
+CloudFirst Migration,CloudFirst,120000,Proposal,50,Watch,600.0
+Lead Generation System,LeadCo,72000,Proposal,65,At Risk,468.0
+Customer Portal Build,Portal Inc,48000,Proposal,90,At Risk,432.0
+Document Management,DocCo,39000,Proposal,90,At Risk,351.0
+Website Redesign V2,WebCo,41000,Proposal,85,At Risk,348.5
+Marketing Ops Platform,MarketingCo,65000,Discovery,48,Watch,312.0
+Booking Software,BookingCo,51000,Proposal,60,At Risk,306.0
+TechStart AI Integration,TechStart,75000,Discovery,38,Watch,285.0
+E-Commerce Integration,EComm Co,85000,Negotiation,33,Watch,280.5
+Inventory Management,InventoryCo,55000,Discovery,50,Watch,275.0
+Sales Automation Setup,SalesFlow,62000,Discovery,43,Watch,266.6
+Email Marketing Platform,EmailCo,28000,Proposal,90,At Risk,252.0
+Brand Strategy Overhaul,BrandCo,50000,Discovery,50,Watch,250.0
+Content Management System,ContentPro,38000,Proposal,65,At Risk,247.0
+Video Hosting Platform,VideoCo,58000,Discovery,38,Watch,220.4
+Acme Corp - Website Redesign,Acme Inc,45000,Proposal,48,Watch,216.0
+Membership Platform,MembershipCo,47000,Qualification,45,Watch,211.5
+API Integration Project,APITech,28000,Proposal,75,At Risk,210.0
+Mobile App Development,MobileFirst,55000,Qualification,38,Watch,209.0
+DataViz Dashboard,DataViz,45000,Qualification,33,Watch,148.5
+POS System Integration,POSCo,44000,Discovery,33,Watch,145.2
+Analytics Dashboard,AnalyticsCo,32000,Negotiation,45,Watch,144.0
+Customer Support Portal,SupportCo,36000,Negotiation,40,Watch,144.0
+HR Tech Implementation,HRPlus,40000,Proposal,33,Watch,132.0
+GlobalSoft - Marketing Ops,GlobalSoft,35000,Negotiation,33,Watch,115.5
+Chatbot Implementation,ChatbotCo,33000,Negotiation,33,Watch,108.9
+Social Media Management,SocialCo,22000,Qualification,33,Watch,72.6
+SEO Optimization Package,SEOCo,18000,Qualification,33,Watch,59.4

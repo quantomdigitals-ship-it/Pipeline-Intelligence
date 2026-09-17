@@ -1,0 +1,31 @@
+opportunity_name,company_name,deal_value,pipeline_stage,last_activity_date,next_step_scheduled,next_step_date,proposal_sent_date,last_buyer_response_date,stakeholder_count,expected_close_date,days_in_stage
+Acme Corp - Website Redesign,Acme Inc,45000,Proposal,2026-09-05,2026-09-08,2026-09-08,2026-08-25,2026-09-02,2,2026-09-30,21
+TechStart AI Integration,TechStart,75000,Discovery,2026-09-07,2026-09-09,2026-09-09,,2026-09-07,3,2026-09-30,8
+GlobalSoft - Marketing Ops,GlobalSoft,35000,Negotiation,2026-09-06,2026-09-08,2026-09-08,2026-08-28,2026-09-05,2,2026-09-15,10
+CloudFirst Migration,CloudFirst,120000,Proposal,2026-09-04,2026-09-10,2026-09-10,2026-08-20,2026-08-30,3,2026-10-15,22
+DataViz Dashboard,DataViz,45000,Qualification,2026-09-07,2026-09-12,2026-09-12,,2026-09-07,2,2026-10-05,5
+Marketing Ops Platform,MarketingCo,65000,Discovery,2026-09-03,2026-09-09,2026-09-09,,2026-09-02,3,2026-09-30,12
+HR Tech Implementation,HRPlus,40000,Proposal,2026-09-06,2026-09-10,2026-09-10,2026-08-28,2026-09-05,2,2026-09-28,14
+E-Commerce Integration,EComm Co,85000,Negotiation,2026-09-07,2026-09-10,2026-09-10,2026-08-25,2026-09-06,4,2026-09-20,8
+Mobile App Development,MobileFirst,55000,Qualification,2026-09-07,2026-09-14,2026-09-14,,2026-09-07,2,2026-10-10,6
+API Integration Project,APITech,28000,Proposal,2026-09-05,,,2026-08-30,2026-08-28,1,2026-09-28,18
+Brand Strategy Overhaul,BrandCo,50000,Discovery,2026-09-02,2026-09-12,2026-09-12,,2026-08-30,2,2026-09-30,10
+Content Management System,ContentPro,38000,Proposal,2026-09-01,,,2026-08-22,2026-08-20,2,2026-09-30,16
+Sales Automation Setup,SalesFlow,62000,Discovery,2026-09-04,2026-09-10,2026-09-10,,2026-09-03,3,2026-10-10,9
+Customer Portal Build,Portal Inc,48000,Proposal,2026-08-30,,,2026-08-18,2026-08-15,1,2026-09-30,20
+Analytics Dashboard,AnalyticsCo,32000,Negotiation,2026-08-28,2026-09-15,2026-09-15,2026-08-10,2026-08-25,2,2026-09-15,12
+Social Media Management,SocialCo,22000,Qualification,2026-09-07,2026-09-10,2026-09-10,,2026-09-07,2,2026-10-15,4
+CRM Implementation,CRMPro,95000,Discovery,2026-08-31,,,2026-08-25,2026-08-20,2,2026-09-30,14
+Email Marketing Platform,EmailCo,28000,Proposal,2026-08-28,,,2026-08-13,2026-08-10,1,2026-09-15,25
+Website Redesign V2,WebCo,41000,Proposal,2026-08-29,,,2026-08-14,2026-08-12,1,2026-09-20,19
+Inventory Management,InventoryCo,55000,Discovery,2026-09-02,2026-09-12,2026-09-12,,2026-09-01,3,2026-10-05,11
+Compliance Automation,ComplianceCo,67000,Proposal,2026-08-27,,,2026-08-08,2026-07-31,1,2026-09-30,23
+Customer Support Portal,SupportCo,36000,Negotiation,2026-09-02,2026-09-15,2026-09-15,2026-08-20,2026-08-31,2,2026-09-20,11
+SEO Optimization Package,SEOCo,18000,Qualification,2026-09-08,2026-09-13,2026-09-13,,2026-09-08,1,2026-10-20,3
+Lead Generation System,LeadCo,72000,Proposal,2026-09-02,2026-09-12,2026-09-12,2026-08-20,2026-08-20,2,2026-10-05,17
+POS System Integration,POSCo,44000,Discovery,2026-09-07,2026-09-10,2026-09-10,,2026-09-07,3,2026-10-10,6
+Booking Software,BookingCo,51000,Proposal,2026-09-03,,,2026-08-24,2026-08-20,2,2026-09-30,15
+Chatbot Implementation,ChatbotCo,33000,Negotiation,2026-09-05,2026-09-10,2026-09-10,2026-08-15,2026-09-03,2,2026-09-25,9
+Video Hosting Platform,VideoCo,58000,Discovery,2026-09-07,2026-09-15,2026-09-15,,2026-09-07,3,2026-10-05,8
+Membership Platform,MembershipCo,47000,Qualification,2026-09-05,,,,2026-08-25,1,2026-10-30,7
+Document Management,DocCo,39000,Proposal,2026-08-24,,,2026-07-30,2026-07-20,1,2026-09-30,26

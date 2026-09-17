@@ -1,0 +1,422 @@
+[
+  {
+    "opportunity_name": "CRM Implementation",
+    "company_name": "CRMPro",
+    "amount": 95000,
+    "stage": "Discovery",
+    "risk_score": 75,
+    "risk_level": "At Risk",
+    "priority_score": 712.5,
+    "ai_analysis": {
+      "explanation": "Deal is aging in current stage faster than baseline, with limited next-step definition blocking momentum.",
+      "recommended_action": "Request formal timeline from buyer with specific decision dates and next touchpoint.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Compliance Automation",
+    "company_name": "ComplianceCo",
+    "amount": 67000,
+    "stage": "Proposal",
+    "risk_score": 90,
+    "risk_level": "At Risk",
+    "priority_score": 603.0,
+    "ai_analysis": {
+      "explanation": "Deal has been stalled in proposal stage for 3+ weeks with zero buyer engagement, indicating approval blockers or lost interest.",
+      "recommended_action": "Schedule urgent stakeholder alignment call to identify decision obstacles.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "CloudFirst Migration",
+    "company_name": "CloudFirst",
+    "amount": 120000,
+    "stage": "Proposal",
+    "risk_score": 50,
+    "risk_level": "Watch",
+    "priority_score": 600.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Lead Generation System",
+    "company_name": "LeadCo",
+    "amount": 72000,
+    "stage": "Proposal",
+    "risk_score": 65,
+    "risk_level": "At Risk",
+    "priority_score": 468.0,
+    "ai_analysis": {
+      "explanation": "Deal is aging in current stage faster than baseline, with limited next-step definition blocking momentum.",
+      "recommended_action": "Request formal timeline from buyer with specific decision dates and next touchpoint.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Customer Portal Build",
+    "company_name": "Portal Inc",
+    "amount": 48000,
+    "stage": "Proposal",
+    "risk_score": 90,
+    "risk_level": "At Risk",
+    "priority_score": 432.0,
+    "ai_analysis": {
+      "explanation": "Deal has been stalled in proposal stage for 3+ weeks with zero buyer engagement, indicating approval blockers or lost interest.",
+      "recommended_action": "Schedule urgent stakeholder alignment call to identify decision obstacles.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Document Management",
+    "company_name": "DocCo",
+    "amount": 39000,
+    "stage": "Proposal",
+    "risk_score": 90,
+    "risk_level": "At Risk",
+    "priority_score": 351.0,
+    "ai_analysis": {
+      "explanation": "Deal has been stalled in proposal stage for 3+ weeks with zero buyer engagement, indicating approval blockers or lost interest.",
+      "recommended_action": "Schedule urgent stakeholder alignment call to identify decision obstacles.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Website Redesign V2",
+    "company_name": "WebCo",
+    "amount": 41000,
+    "stage": "Proposal",
+    "risk_score": 85,
+    "risk_level": "At Risk",
+    "priority_score": 348.5,
+    "ai_analysis": {
+      "explanation": "Deal has been stalled in proposal stage for 3+ weeks with zero buyer engagement, indicating approval blockers or lost interest.",
+      "recommended_action": "Schedule urgent stakeholder alignment call to identify decision obstacles.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Marketing Ops Platform",
+    "company_name": "MarketingCo",
+    "amount": 65000,
+    "stage": "Discovery",
+    "risk_score": 48,
+    "risk_level": "Watch",
+    "priority_score": 312.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Booking Software",
+    "company_name": "BookingCo",
+    "amount": 51000,
+    "stage": "Proposal",
+    "risk_score": 60,
+    "risk_level": "At Risk",
+    "priority_score": 306.0,
+    "ai_analysis": {
+      "explanation": "Deal is aging in current stage faster than baseline, with limited next-step definition blocking momentum.",
+      "recommended_action": "Request formal timeline from buyer with specific decision dates and next touchpoint.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "TechStart AI Integration",
+    "company_name": "TechStart",
+    "amount": 75000,
+    "stage": "Discovery",
+    "risk_score": 38,
+    "risk_level": "Watch",
+    "priority_score": 285.0,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "E-Commerce Integration",
+    "company_name": "EComm Co",
+    "amount": 85000,
+    "stage": "Negotiation",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 280.5,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Inventory Management",
+    "company_name": "InventoryCo",
+    "amount": 55000,
+    "stage": "Discovery",
+    "risk_score": 50,
+    "risk_level": "Watch",
+    "priority_score": 275.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Sales Automation Setup",
+    "company_name": "SalesFlow",
+    "amount": 62000,
+    "stage": "Discovery",
+    "risk_score": 43,
+    "risk_level": "Watch",
+    "priority_score": 266.6,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Email Marketing Platform",
+    "company_name": "EmailCo",
+    "amount": 28000,
+    "stage": "Proposal",
+    "risk_score": 90,
+    "risk_level": "At Risk",
+    "priority_score": 252.0,
+    "ai_analysis": {
+      "explanation": "Deal has been stalled in proposal stage for 3+ weeks with zero buyer engagement, indicating approval blockers or lost interest.",
+      "recommended_action": "Schedule urgent stakeholder alignment call to identify decision obstacles.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Brand Strategy Overhaul",
+    "company_name": "BrandCo",
+    "amount": 50000,
+    "stage": "Discovery",
+    "risk_score": 50,
+    "risk_level": "Watch",
+    "priority_score": 250.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Content Management System",
+    "company_name": "ContentPro",
+    "amount": 38000,
+    "stage": "Proposal",
+    "risk_score": 65,
+    "risk_level": "At Risk",
+    "priority_score": 247.0,
+    "ai_analysis": {
+      "explanation": "Deal is aging in current stage faster than baseline, with limited next-step definition blocking momentum.",
+      "recommended_action": "Request formal timeline from buyer with specific decision dates and next touchpoint.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Video Hosting Platform",
+    "company_name": "VideoCo",
+    "amount": 58000,
+    "stage": "Discovery",
+    "risk_score": 38,
+    "risk_level": "Watch",
+    "priority_score": 220.4,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Acme Corp - Website Redesign",
+    "company_name": "Acme Inc",
+    "amount": 45000,
+    "stage": "Proposal",
+    "risk_score": 48,
+    "risk_level": "Watch",
+    "priority_score": 216.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Membership Platform",
+    "company_name": "MembershipCo",
+    "amount": 47000,
+    "stage": "Qualification",
+    "risk_score": 45,
+    "risk_level": "Watch",
+    "priority_score": 211.5,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "API Integration Project",
+    "company_name": "APITech",
+    "amount": 28000,
+    "stage": "Proposal",
+    "risk_score": 75,
+    "risk_level": "At Risk",
+    "priority_score": 210.0,
+    "ai_analysis": {
+      "explanation": "Deal is aging in current stage faster than baseline, with limited next-step definition blocking momentum.",
+      "recommended_action": "Request formal timeline from buyer with specific decision dates and next touchpoint.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Mobile App Development",
+    "company_name": "MobileFirst",
+    "amount": 55000,
+    "stage": "Qualification",
+    "risk_score": 38,
+    "risk_level": "Watch",
+    "priority_score": 209.0,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "DataViz Dashboard",
+    "company_name": "DataViz",
+    "amount": 45000,
+    "stage": "Qualification",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 148.5,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "POS System Integration",
+    "company_name": "POSCo",
+    "amount": 44000,
+    "stage": "Discovery",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 145.2,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Analytics Dashboard",
+    "company_name": "AnalyticsCo",
+    "amount": 32000,
+    "stage": "Negotiation",
+    "risk_score": 45,
+    "risk_level": "Watch",
+    "priority_score": 144.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Customer Support Portal",
+    "company_name": "SupportCo",
+    "amount": 36000,
+    "stage": "Negotiation",
+    "risk_score": 40,
+    "risk_level": "Watch",
+    "priority_score": 144.0,
+    "ai_analysis": {
+      "explanation": "Deal shows early warning signs with long gaps between activities, suggesting buyer deprioritization.",
+      "recommended_action": "Confirm buyer still engaged; propose trial or pilot to re-energize discussion.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "HR Tech Implementation",
+    "company_name": "HRPlus",
+    "amount": 40000,
+    "stage": "Proposal",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 132.0,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "GlobalSoft - Marketing Ops",
+    "company_name": "GlobalSoft",
+    "amount": 35000,
+    "stage": "Negotiation",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 115.5,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Chatbot Implementation",
+    "company_name": "ChatbotCo",
+    "amount": 33000,
+    "stage": "Negotiation",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 108.9,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "Social Media Management",
+    "company_name": "SocialCo",
+    "amount": 22000,
+    "stage": "Qualification",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 72.6,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  },
+  {
+    "opportunity_name": "SEO Optimization Package",
+    "company_name": "SEOCo",
+    "amount": 18000,
+    "stage": "Qualification",
+    "risk_score": 33,
+    "risk_level": "Watch",
+    "priority_score": 59.4,
+    "ai_analysis": {
+      "explanation": "Deal is progressing normally with active engagement and defined next steps.",
+      "recommended_action": "Continue standard follow-up cadence and prepare for next stage gate.",
+      "confidence_level": "High"
+    }
+  }
+]
