@@ -672,14 +672,30 @@ with st.sidebar:
 
     if st.button("📤 Try Sample Data"):
         with st.spinner("Processing sample data..."):
-            st.session_state.current_report = process_csv(
-                open('sample-pipeline-raw.csv', 'rb'),
-                'Sample Pipeline'
-            )
-            if st.session_state.current_report:
-                st.session_state.reports_history.insert(0, st.session_state.current_report)
-                st.success("✅ Sample data loaded!")
-                st.rerun()
+            try:
+                # Try to open sample file
+                with open('sample-pipeline-raw.csv', 'rb') as f:
+                    file_data = f.read()
+
+                # Create a file-like object
+                from io import BytesIO
+                sample_file = BytesIO(file_data)
+                sample_file.name = 'sample-pipeline-raw.csv'
+
+                st.session_state.current_report = process_csv(
+                    sample_file,
+                    'Sample Pipeline'
+                )
+                if st.session_state.current_report:
+                    st.session_state.reports_history.insert(0, st.session_state.current_report)
+                    st.success("✅ Sample data loaded!")
+                    st.rerun()
+                else:
+                    st.error("❌ Failed to process sample data")
+            except FileNotFoundError:
+                st.error("❌ Sample data file not found. Please upload your own CSV.")
+            except Exception as e:
+                st.error(f"❌ Error processing sample data: {str(e)}")
 
     st.divider()
 
