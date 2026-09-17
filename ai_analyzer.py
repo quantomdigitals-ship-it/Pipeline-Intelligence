@@ -3,7 +3,21 @@ import json
 from datetime import datetime
 import anthropic
 
-client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+def get_client():
+    """Get Anthropic client with API key from environment or Streamlit secrets"""
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        try:
+            import streamlit as st
+            if "CLAUDE_API_KEY" in st.secrets:
+                api_key = st.secrets["CLAUDE_API_KEY"]
+        except:
+            pass
+
+    if not api_key:
+        raise ValueError("No API key found. Set CLAUDE_API_KEY environment variable or Streamlit secret.")
+
+    return anthropic.Anthropic(api_key=api_key)
 
 def build_deal_context(deal: dict) -> str:
     """Build a concise context string for Claude to analyze."""
@@ -29,6 +43,7 @@ def analyze_deal_with_claude(deal: dict) -> dict:
         Dict with keys: explanation, recommended_action, confidence_level
     """
     try:
+        client = get_client()
         context = build_deal_context(deal)
 
         prompt = f"""{context}
@@ -47,7 +62,7 @@ Format your response as JSON:
 Only respond with valid JSON, no other text."""
 
         message = client.messages.create(
-            model="claude-opus-5",
+            model="claude-opus-4-20250514",
             max_tokens=300,
             messages=[
                 {"role": "user", "content": prompt}
