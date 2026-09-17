@@ -10,6 +10,12 @@ import os
 from datetime import datetime
 import plotly.express as px
 import plotly.graph_objects as go
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak, Image
+from reportlab.lib.units import inch
+from io import BytesIO
 from csv_parser import parse_csv
 from pipeline_intelligence import calculate_risk_score
 from demo_ai_analyzer import demo_analyze_deal
@@ -283,7 +289,13 @@ def display_report(report):
         )
 
     with col2:
-        st.markdown("📄 PDF export available in production version")
+        pdf_data = generate_pdf_report(report)
+        st.download_button(
+            label="📄 Download PDF",
+            data=pdf_data,
+            file_name=f"pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+            mime="application/pdf"
+        )
 
 def create_charts(report):
     """Create interactive charts for report"""
@@ -354,6 +366,92 @@ def create_charts(report):
     )
 
     return fig_risk, fig_revenue, fig_stage
+
+def generate_pdf_report(report):
+    """Generate PDF report"""
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=0.5*inch, leftMargin=0.5*inch)
+    story = []
+    styles = getSampleStyleSheet()
+
+    # Title
+    title_style = ParagraphStyle(
+        'CustomTitle',
+        parent=styles['Heading1'],
+        fontSize=24,
+        textColor=colors.HexColor('#1f2937'),
+        spaceAfter=12,
+        alignment=1
+    )
+    story.append(Paragraph("📊 Pipeline Intelligence Report", title_style))
+    story.append(Paragraph(f"<font size=10>Generated: {datetime.fromisoformat(report['date']).strftime('%B %d, %Y at %I:%M %p')}</font>", styles['Normal']))
+    story.append(Spacer(1, 0.3*inch))
+
+    # Key Metrics Table
+    metrics_data = [
+        ['Metric', 'Value'],
+        ['Total Pipeline', f"${report['metrics']['total_pipeline']:,.0f}"],
+        ['Revenue at Risk', f"${report['metrics']['at_risk_revenue']:,.0f}"],
+        ['At-Risk Deals', f"{report['metrics']['at_risk_count']} deals"],
+        ['Avg Risk Score', f"{report['metrics']['avg_risk_score']}/100"],
+    ]
+
+    metrics_table = Table(metrics_data, colWidths=[2.5*inch, 2.5*inch])
+    metrics_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#3b82f6')),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, 0), 12),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+        ('GRID', (0, 0), (-1, -1), 1, colors.black)
+    ]))
+    story.append(metrics_table)
+    story.append(Spacer(1, 0.3*inch))
+
+    # Top 5 Deals
+    story.append(Paragraph("Top 5 Highest Risk Deals", styles['Heading2']))
+
+    deals_data = [['Deal', 'Company', 'Amount', 'Risk Score', 'Status']]
+    for i, deal in enumerate(report['top_5_deals'][:5], 1):
+        risk_status = '🔴 AT RISK' if deal['risk_score'] >= 60 else ('🟡 WATCH' if deal['risk_score'] >= 30 else '🟢 HEALTHY')
+        deals_data.append([
+            deal['opportunity_name'][:20],
+            deal['company_name'][:15],
+            f"${deal['amount']:,}",
+            f"{deal['risk_score']}/100",
+            risk_status
+        ])
+
+    deals_table = Table(deals_data, colWidths=[1.5*inch, 1.5*inch, 1*inch, 0.9*inch, 1.1*inch])
+    deals_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#ef4444')),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, -1), 9),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
+        ('GRID', (0, 0), (-1, -1), 1, colors.grey)
+    ]))
+    story.append(deals_table)
+    story.append(Spacer(1, 0.3*inch))
+
+    # Summary
+    story.append(Paragraph("Summary & Recommendations", styles['Heading2']))
+    summary_text = f"""
+    Your pipeline contains {report['metrics']['total_deals']} deals worth ${report['metrics']['total_pipeline']:,.0f}.
+    {report['metrics']['at_risk_count']} deals ({report['metrics']['at_risk_percent']}%) are at critical risk, requiring immediate intervention.
+    <br/><br/>
+    Focus on unstalling proposals and accelerating discovery to recover at-risk revenue.
+    Expected recovery potential: ${report['metrics']['at_risk_revenue'] * 0.5:,.0f} if 50% of at-risk deals progress.
+    """
+    story.append(Paragraph(summary_text, styles['Normal']))
+
+    # Build PDF
+    doc.build(story)
+    buffer.seek(0)
+    return buffer.getvalue()
 
 # Sidebar
 with st.sidebar:
