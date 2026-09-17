@@ -1,0 +1,26 @@
+deal_name,company,amount,stage,days_in_stage,last_activity_date,next_step_scheduled,next_step_date,proposal_sent_date,last_buyer_response_date,stakeholder_count,close_date
+CloudFirst Migration,CloudFirst Inc,120000,Proposal,25,2026-08-22,Yes,2026-09-20,2026-08-15,2026-08-22,3,2026-10-15
+SecureData API,SecureData Corp,85000,Discovery,12,2026-09-02,Yes,2026-09-18,,,2,2026-11-01
+Enterprise Dashboard,TechVision Ltd,250000,Negotiation,35,2026-08-10,Yes,2026-09-25,2026-07-20,2026-08-10,5,2026-11-30
+Mobile App Redesign,AppWorks Studios,65000,Proposal,20,2026-08-25,Yes,2026-09-22,2026-08-18,2026-08-25,2,2026-10-30
+Payment Gateway,FinTech Solutions,180000,Discovery,8,2026-09-05,Yes,2026-09-19,,,4,2026-12-15
+CRM Implementation,SalesPro Systems,95000,Proposal,40,2026-07-25,Yes,2026-09-20,2026-07-10,2026-07-25,3,2026-10-20
+Analytics Platform,DataStream Inc,150000,Negotiation,28,2026-08-15,Yes,2026-09-25,2026-07-15,2026-08-15,4,2026-11-20
+Inventory Management,RetailChain Corp,110000,Discovery,15,2026-08-28,Yes,2026-09-20,,,2,2026-11-10
+Email Marketing Tool,GrowthLabs,45000,Proposal,18,2026-08-27,Yes,2026-09-21,2026-08-20,2026-08-27,1,2026-10-15
+Infrastructure Upgrade,CloudOps Ltd,275000,Negotiation,42,2026-07-20,Yes,2026-09-30,2026-06-20,2026-07-20,6,2026-12-01
+HR Platform,PeopleFirst Inc,88000,Discovery,10,2026-09-03,Yes,2026-09-17,,,3,2026-11-05
+Document Management,LegalTech Solutions,125000,Proposal,30,2026-08-12,Yes,2026-09-25,2026-07-25,2026-08-12,3,2026-11-15
+Cybersecurity Suite,SecurityGuard Corp,220000,Negotiation,38,2026-08-05,Yes,2026-09-28,2026-06-25,2026-08-05,5,2026-12-10
+Supply Chain Platform,LogisticsPro,165000,Discovery,9,2026-09-04,Yes,2026-09-18,,,4,2026-11-25
+Video Conferencing,CommHub Solutions,72000,Proposal,22,2026-08-23,Yes,2026-09-20,2026-08-16,2026-08-23,2,2026-10-25
+Accounting Software,FinanceFlow Inc,98000,Discovery,11,2026-09-01,Yes,2026-09-16,,,2,2026-11-08
+Project Management,TaskMaster Ltd,115000,Proposal,26,2026-08-18,Yes,2026-09-22,2026-08-10,2026-08-18,3,2026-11-05
+Customer Support Platform,SupportPro Inc,87000,Discovery,14,2026-08-30,Yes,2026-09-19,,,2,2026-11-12
+Business Intelligence,InsightHub Corp,195000,Negotiation,33,2026-08-12,Yes,2026-09-26,2026-07-25,2026-08-12,4,2026-11-30
+Workflow Automation,AutoFlow Solutions,78000,Proposal,19,2026-08-26,Yes,2026-09-21,2026-08-19,2026-08-26,2,2026-10-20
+Content Management,CMS Masters,92000,Discovery,13,2026-09-02,Yes,2026-09-18,,,2,2026-11-10
+API Gateway,TechIntegrate Ltd,145000,Proposal,24,2026-08-20,Yes,2026-09-23,2026-08-12,2026-08-20,3,2026-11-08
+Compliance Software,ComplianceGuard,138000,Negotiation,31,2026-08-15,Yes,2026-09-24,2026-07-28,2026-08-15,3,2026-11-20
+Mobile Development,MobileFirst Studios,82000,Discovery,7,2026-09-06,Yes,2026-09-20,,,2,2026-11-15
+Retail Analytics,RetailInsight Corp,125000,Proposal,27,2026-08-17,Yes,2026-09-23,2026-08-09,2026-08-17,3,2026-11-10
