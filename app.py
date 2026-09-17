@@ -716,13 +716,37 @@ with st.sidebar:
 if st.session_state.current_report:
     display_report(st.session_state.current_report)
 else:
-    # Hero Section
+    st.markdown("## Pipeline Risk Analysis")
+    st.markdown("Upload a CSV export from your CRM to analyze deal risk.")
+
+    st.divider()
+
+    st.markdown("### Process")
     st.markdown("""
-    <div class="hero-section">
-        <div class="hero-title">🚀 Pipeline Intelligence</div>
-        <div class="hero-subtitle">Unlock hidden pipeline risks with AI-powered analysis in seconds</div>
-    </div>
-    """, unsafe_allow_html=True)
+    1. Export CSV from HubSpot, Salesforce, Pipedrive, or your CRM
+    2. Upload the file in the sidebar
+    3. View risk metrics, charts, and analysis
+    """)
+
+    st.divider()
+
+    st.markdown("### Sample Data")
+    st.markdown("Use **Try Sample Data** in the sidebar to see an analysis of 25 deals.")
+
+    st.divider()
+
+    st.markdown("### Supported Formats")
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.text("HubSpot\nAuto-detected")
+    with col2:
+        st.text("Salesforce\nAuto-detected")
+    with col3:
+        st.text("Pipedrive\nAuto-detected")
+    with col4:
+        st.text("Custom CSV\nColumn matching")
+else:
+    st.markdown("## Pipeline Risk Analysis")
 
     # Main Content
     col1, col2 = st.columns([1.2, 1])
@@ -734,91 +758,3 @@ else:
         st.markdown("""
         <div class="feature-card">
             <div class="feature-icon">📊</div>
-            <div class="feature-title">Risk Scoring</div>
-            <div class="feature-text">Instantly identify which deals are at risk with our 6-signal risk engine</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-icon">🤖</div>
-            <div class="feature-title">AI Analysis</div>
-            <div class="feature-text">Understand why each deal is at risk and get actionable recommendations</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <div class="feature-title">Visual Reports</div>
-            <div class="feature-text">Interactive charts, metrics, and downloadable PDF/CSV exports</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <div class="feature-title">Lightning Fast</div>
-            <div class="feature-text">Analyze 30+ deals in seconds, not hours</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("### 🎯 Get Started")
-
-        # Quick stats box
-        st.info("""
-        **Try it right now:**
-
-        🔹 Click "Try Sample Data" to see a full analysis
-
-        🔹 Or upload your own CSV from:
-        - HubSpot
-        - Salesforce
-        - Pipedrive
-        - Any CRM format
-
-        Takes **8 seconds** ⚡
-        """)
-
-        # Action buttons
-        st.markdown("### ")
-
-        # Sample data button is in sidebar, but add visual cue here
-        st.markdown("""
-        <style>
-        .action-box {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #667eea30;
-            text-align: center;
-            margin-top: 16px;
-        }
-        </style>
-        <div class="action-box">
-            <p style="margin: 0; font-size: 14px; color: #64748b;">
-            ↑ Click <b>"Try Sample Data"</b> in the sidebar to see it in action
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # Bottom CTA Section
-    st.markdown("---")
-    st.markdown("""
-    ### 💡 Why Pipeline Intelligence?
-
-    Most sales teams lose $100K+ annually to stalled deals and poor pipeline visibility.
-    Pipeline Intelligence surfaces hidden risks before they become revenue losses.
-    """)
-
-    # Stats row
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Deals Analyzed", "2,000+", "This Month")
-    with col2:
-        st.metric("At-Risk Revenue Found", "$5.2M+", "Recovered")
-    with col3:
-        st.metric("Analysis Time", "8 sec", "Per Pipeline")
-    with col4:
-        st.metric("Accuracy", "94%", "Deal Prediction")
