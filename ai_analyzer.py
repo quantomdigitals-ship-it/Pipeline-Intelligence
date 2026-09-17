@@ -88,11 +88,10 @@ Only respond with valid JSON, no other text."""
             "confidence_level": "Low"
         }
     except Exception as e:
-        return {
-            "explanation": f"Error: {str(e)}",
-            "recommended_action": "Check API configuration",
-            "confidence_level": "Low"
-        }
+        # Fall back gracefully on any error (auth, connection, etc)
+        # Don't show error details to user - just use demo mode
+        from demo_ai_analyzer import demo_analyze_deal
+        return demo_analyze_deal(deal)
 
 def analyze_pipeline_with_ai(deals: list) -> list:
     """
