@@ -19,6 +19,7 @@ from io import BytesIO
 from csv_parser import parse_csv
 from pipeline_intelligence import calculate_risk_score
 from demo_ai_analyzer import demo_analyze_deal
+from trend_analyzer import analyze_deal_trend, generate_trend_summary
 
 # Try to import real Claude analyzer
 try:
@@ -343,6 +344,50 @@ def display_report(report):
         st.plotly_chart(fig_revenue, use_container_width=True)
 
     st.plotly_chart(fig_stage, use_container_width=True)
+
+    st.divider()
+
+    # 90-Day Trend Analysis
+    st.markdown("### 90-Day Trend Analysis")
+
+    # Generate trend data for all deals
+    trend_data = [analyze_deal_trend(deal) for deal in report['all_deals']]
+    trend_summary = generate_trend_summary(trend_data)
+
+    # Trend summary metrics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric(
+            "Improving Deals",
+            trend_summary['improving_count'],
+            f"${trend_summary['improving_revenue']:,.0f}"
+        )
+    with col2:
+        st.metric(
+            "Stable Deals",
+            trend_summary['stable_count'],
+            f"${trend_summary['stable_revenue']:,.0f}"
+        )
+    with col3:
+        st.metric(
+            "Deteriorating Deals",
+            trend_summary['deteriorating_count'],
+            f"${trend_summary['deteriorating_revenue']:,.0f}"
+        )
+
+    # Deal trends table
+    st.markdown("**Deal Trend Details**")
+    trend_df = pd.DataFrame([{
+        'Deal': d['opportunity_name'],
+        'Company': d['company_name'],
+        'Trend': d['trend'],
+        'Current Score': d['current_score'],
+        '90 Days Ago': d['score_90_days_ago'],
+        'Change': f"{d['change']:+d} ({d['change_percent']:+d}%)",
+        'Amount': f"${d['amount']:,}"
+    } for d in sorted(trend_data, key=lambda x: abs(x['change']), reverse=True)])
+
+    st.dataframe(trend_df, use_container_width=True, hide_index=True)
 
     st.divider()
 
